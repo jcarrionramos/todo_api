@@ -1,0 +1,24 @@
+{
+  "name": "todo_api",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcarrionramos/todo_api.git"
+  },
+  "author": "jcarrionramos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jcarrionramos/todo_api/issues"
+  },
+  "homepage": "https://github.com/jcarrionramos/todo_api#readme"
+}
