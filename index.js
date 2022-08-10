@@ -1,13 +1,16 @@
-var express = require("express");
-var app = express();
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const mongoose = require("mongoose");
+require("dotenv").config();
 
-// for parsing application/json
+const app = express();
+
+const userRoutes = require("./routes/user.js");
+
+app.use(cors());
 app.use(bodyParser.json());
-
-// for parsing application/xwww-
 app.use(bodyParser.urlencoded({ extended: true }));
-
-var userRoutes = require("./routes/user.js");
 
 // a middleware, maybe a good way to check the JWT
 app.use("/", (req, res, next) => {
@@ -16,5 +19,10 @@ app.use("/", (req, res, next) => {
 });
 
 app.use("/user", userRoutes);
+
+mongoose
+  .connect(process.env.DB_URI)
+  .then(() => console.log("Connected to Mongo database"))
+  .catch((error) => console.error("Connection refused: ", error));
 
 app.listen(3300);
